@@ -15,14 +15,16 @@ async function projectExistence (req, res, next) {
 }
 
 async function projectBodyExistence (req, res, next) {
-    const { name, description } = req.body 
+    const { name, description, completed } = req.body 
 
-    if (name === undefined && description === undefined) {
+    if (name === undefined && description === undefined && completed === undefined) {
         return res.status(400).json({ message: 'name and description is required ' })
     } else if (name === undefined) {
         return res.status(400).json({ message: 'name is required' })
     } else if (description === undefined) {
         return res.status(400).json({ message: 'description is required' })
+    } else if (completed === undefined) {
+        return res.status(400).json({ message: 'completed is required' })
     } else {
         next()
     }

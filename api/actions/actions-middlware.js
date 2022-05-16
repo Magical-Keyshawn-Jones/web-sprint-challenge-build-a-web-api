@@ -7,9 +7,10 @@ async function actionChecker (req, res, next) {
 
     if (!action) {
         return res.status(404).json({ message: 'could not find action with that id' })
-    } else if (!id) {
-        return res.status(400).json({ message: 'id is required' })
     }
+    //  else if (!id) {
+    //     return res.status(400).json({ message: 'id is required' })
+    // }
 
     req.newAction = action
 
